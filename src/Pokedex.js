@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { choose, draw } from './helpers'
+import { draw, setDigits } from './helpers'
 import Pokecard from './Pokecard'
 import './Pokedex.css'
 
@@ -23,11 +23,12 @@ class Pokedex extends Component {
       acc += pokemon[index].base_experience + next.base_experience
       return acc
       }, 0)
+      
     return (
       <div className="Pokedex">
-        <h2>{this.props.playerName}</h2>
+        <h2 className="Pokedex-player">{this.props.playerName}</h2>
         <div className="Pokedex-draw">{picks.map(p => (
-          <Pokecard id={p.id} name={p.name} type={p.type} exp={p.base_experience} />
+          <Pokecard id={setDigits(p.id)} name={p.name} type={p.type} exp={p.base_experience} />
         ))} 
         </div>
         <h3>Points: {totalPoints}</h3>

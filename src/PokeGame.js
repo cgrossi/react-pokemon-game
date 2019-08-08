@@ -4,6 +4,7 @@ import Pokedex from './Pokedex'
 class PokeGame extends Component {
 
   render() {
+    
     return (
       <div className="PokeGame">
         <Pokedex playerName={"Player One"}/>
