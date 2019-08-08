@@ -26,3 +26,11 @@
 .Pokedex h3 {
   margin-bottom: 0;
 }
+
+.Pokedex .win {
+  color: green;
+}
+
+.Pokedex .lose {
+  color: red;
+}

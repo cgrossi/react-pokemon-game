@@ -5,6 +5,19 @@ const choose = (pokeList) => {
 const draw = (pokeList) => {
   return [choose(pokeList), choose(pokeList), choose(pokeList), choose(pokeList)]
 }
+
+const playerHand = (player, pokeList) => {
+  let hand = draw(pokeList)
+  let totalPoints = hand.reduce((acc,next, index, hand) => {
+    acc += hand[index].base_experience + next.base_experience
+    return acc
+    }, 0)
+  return {
+    playerName: player,
+    pokemon: hand,
+    points: totalPoints
+  }
+}
 const setDigits = (id) => {
   let length = id.toString().length
   while(length < 3) {
@@ -14,4 +27,4 @@ const setDigits = (id) => {
   return id
 }
 
-export { choose, draw, setDigits }
+export { choose, playerHand, draw, setDigits }
